@@ -57,6 +57,14 @@ RUN apt-get install -y xfce4 xfce4-terminal && \
 # 配置xfce图形界面
 ADD ./xfce/ /root/
 
+# 配置右上角关闭和最小化
+RUN wget http://launchpadlibrarian.net/494460182/xfwm4_4.14.5-1_amd64.deb
+
+RUN dpkg -i xfwm4_4.14.5-1_amd64.deb
+
+# RUN reboot
+
+
 # 创建脚本文件
 RUN echo "#!/bin/bash\n" > /root/startup.sh && \
     # 修改密码
@@ -66,13 +74,17 @@ RUN echo "#!/bin/bash\n" > /root/startup.sh && \
     # SSH
     echo "/usr/sbin/sshd -D & source /root/.bashrc" >> /root/startup.sh && \
     # VNC
+    echo 'rm -f /tmp/.X1-lock' >> /root/startup.sh && \
+    echo 'rm -f /tmp/.X11-unix/X1' >> /root/startup.sh && \
     echo 'USER=root vncserver -geometry $SIZE :1' >> /root/startup.sh && \
     # 可执行脚本
     cp /root/startup.sh /etc/init.d/ && \
     chmod +x /etc/init.d/startup.sh && \
     chmod +x /root/startup.sh
 
+
 # 导出特定端口
 EXPOSE 22 5900 3389 6001 6002 6003 6004 6005 6006 6007 6008 6009
 
-
+# 开机自动启动脚本
+# CMD ["/root/startup.sh"]
