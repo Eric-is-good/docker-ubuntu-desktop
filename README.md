@@ -9,7 +9,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/gotoeasy/ubuntu-desktop)](https://hub.docker.com/r/ericju/ubuntu-desktop)
 [![GitHub release](https://img.shields.io/github/release/gotoeasy/docker-ubuntu-desktop.svg)](https://github.com/Eric-is-good/docker-ubuntu-desktop)
 
-![](https://github.com/Eric-is-good/docker-ubuntu-desktop/blob/main/pics/1.jpg)
+![](https://github.com/Eric-is-good/docker-ubuntu-desktop/blob/main/pics/1.png)
 
 
 
