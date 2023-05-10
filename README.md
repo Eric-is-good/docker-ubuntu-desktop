@@ -27,8 +27,6 @@ docker-compose up
 ```
 
 
-![](https://github.com/Eric-is-good/docker-ubuntu-desktop/blob/main/pics/0.jpg)
-
 然后就可以使用ssh，xftp 和 VNC可视化桌面了。
 
 其中，VNC 连接地址为 ip:5900
